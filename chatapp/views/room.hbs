@@ -1,0 +1,82 @@
+<meta name="viewport" content="width-device-width,initial-scale=1.0,minimum-scale=1.0">
+<meta name="viewname" content="width=device-width, initial-scale=1">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Node Chat チャットルーム</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+
+      </li>
+      <li class="nav-item">
+
+      </li>
+      <li class="nav-item">
+
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <div id ="room-login-userName">
+        ログインユーザ：{{userName}}さん
+      </div>
+    </span>
+  </div>
+</nav>
+<div class="room-container">
+  <div class="room-row">
+    <form method="post" action="/">
+      <div class="room-login_user">
+        <input id="userName" type="hidden" value={{userName}}>
+      </div>
+      <div class="room-message">
+      
+        <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください" ,
+          onkeydown="keyevent()"></textarea>
+      </div>
+    </form>
+
+    <input type="button" value="投稿" class="common-button btn-block room-publish_button btn btn-info"
+      onclick="publish();">
+    <input type="button" value="メモ" class="common-button btn-block room-memo_button btn btn-light" onclick="memo();">
+    <div class="room-submit">
+      <input type="button" value="アドバイス" class="common-button additional_button btn btn-secondary" onclick="advice();">
+      <input type="button" value="ジョーク" class="common-button additional_button btn btn-secondary" onclick="joke();">
+      <input type="button" value="イヌ" class="common-button additional_button btn btn-secondary" onclick="dog();">
+      <div class="room-reverse_order">
+        <input type="button" value="古い順" class="common-button room-reverse_order_button btn btn-dark"
+          onclick="reverseOrder()">
+      </div>
+    </div>
+
+    <div class="room-exit">
+      <input type="button" value="退室する" class="common-button room-exit_button btn btn-warning" onclick="exit();">
+    </div>
+
+    <div class='all_users'>
+      <p style="font-size: large; text-align:center; font-weight: bold;">ログイン中のユーザー</p>
+      <div id="users_name">
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="room-thread">
+    <div id="thread"></div>
+  </div>
+</div>
+
+<script src="/javascripts/socket.js"></script>
+<script src="/javascripts/enter.js"></script>
+<script src="/javascripts/publish.js"></script>
+<script src="/javascripts/memo.js"></script>
+<script src="/javascripts/exit.js"></script>
+
+<script src="/javascripts/dog.js"></script>
+<script src="/javascripts/advice.js"></script>
+<script src="/javascripts/joke.js"></script>
+<script src="/javascripts/dm.js"></script>
